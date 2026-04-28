@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useQuery } from "convex/react";
 // @ts-ignore
 import { api } from "../../convex/_generated/api";
-import { calcStudentAvg } from "../utils/calc";
 import { Calendar, LayoutDashboard, Database, BookOpen, Users } from "lucide-react";
 
 interface SidebarProps {
@@ -19,13 +18,6 @@ export default function Sidebar({
   setCurrentStudentId,
 }: SidebarProps) {
   const students = useQuery(api.students?.getAll || "students:getAll") || [];
-  const courses = useQuery(api.courses?.getAll || "courses:getAll") || [];
-  const studentScores = useQuery(api.scores?.getByStudent || "scores:getByStudent", currentStudentId ? { studentId: currentStudentId } : "skip") || [];
-  // Note: For actual calcStudentAvg we need all scores, but since we are computing average for sidebar, 
-  // we would need all scores. In Convex this might be expensive if we fetch all. 
-  // Let's assume we can fetch all or just render the color based on cached. 
-  // Actually, we'll just omit the color dot if we don't have scores for that student, or fetch all scores.
-  // For simplicity, let's just render the green dot for now.
 
   useEffect(() => {
     if (!currentStudentId && students.length > 0) {

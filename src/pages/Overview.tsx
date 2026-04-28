@@ -6,7 +6,7 @@ import { calcCourseScore, getCourseTarget } from "../utils/calc";
 export default function Overview({ studentId, onNavigateCourse }: { studentId: string | null; onNavigateCourse: (cid: string) => void }) {
   const students = useQuery(api.students?.getAll || "students:getAll") || [];
   const courses = useQuery(api.courses?.getAll || "courses:getAll") || [];
-  const scores = useQuery(api.scores?.getByStudent || "scores:getByStudent", studentId ? { studentId } : "skip") || [];
+  const scores = useQuery(api.scores?.getByStudent || "scores:getByStudent", studentId ? { studentId: studentId as any } : "skip") || [];
 
   const student = students.find((s: any) => s._id === studentId);
 

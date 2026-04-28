@@ -6,7 +6,7 @@ import { api } from "../../convex/_generated/api";
 export default function ScoreEditor({ studentId }: { studentId: string | null }) {
   const students = useQuery(api.students?.getAll || "students:getAll") || [];
   const courses = useQuery(api.courses?.getAll || "courses:getAll") || [];
-  const scores = useQuery(api.scores?.getByStudent || "scores:getByStudent", studentId ? { studentId } : "skip") || [];
+  const scores = useQuery(api.scores?.getByStudent || "scores:getByStudent", studentId ? { studentId: studentId as any } : "skip") || [];
   const setScore = useMutation(api.scores?.setScore || "scores:setScore");
   const deleteScore = useMutation(api.scores?.deleteScore || "scores:deleteScore");
 
