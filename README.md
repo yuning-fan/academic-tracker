@@ -1,77 +1,48 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# Academic Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional academic management system designed to streamline student progress tracking, course management, and deadline monitoring. Built with a modern tech stack focusing on reactivity and ease of use.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Dashboard Overview**: A centralized hub to view your academic standing and upcoming tasks at a glance.
+- **Student & Course Management**: Robust tools for organizing and managing detailed student records and course information.
+- **Score Tracking**: Integrated editor for maintaining and analyzing academic performance across various assessments.
+- **Deadline Management**: Never miss a DDL again with our visual Board and Calendar views for tracking assignments and exams.
+- **Data Security**: Built-in data backup and migration features to ensure your information is always safe and portable.
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [Vite](https://vitejs.dev/)
+- **Backend**: [Convex](https://www.convex.dev/) (Reactive Database & Serverless Functions)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Routing**: [React Router 7](https://reactrouter.com/)
 
-## Expanding the ESLint configuration
+## 💻 Local Development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Follow these steps to get the project up and running locally:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Install Dependencies
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 3. Start Convex Backend
+In a new terminal window, start the Convex development server:
+```bash
+npx convex dev
 ```
-=======
-# academic-tracker
->>>>>>> f835db33fa5ad0e34dbd53eae873b33474698113
+
+### 4. Start Frontend
+Run the Vite development server:
+```bash
+npm run dev
+```
+
+The application should now be running at `http://localhost:5173`.
+
+---
+
+Built with ❤️ for academic excellence.
