@@ -1,0 +1,166 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F6F2;--surface:#FFFFFF;--surface2:#F2F1ED;--border:#E5E3DC;--border2:#D4D2CA;
+  --text:#1A1916;--text2:#6B6960;--text3:#A8A59E;
+  --green:#1D9E75;--green-bg:#E1F5EE;--green-dk:#085041;
+  --amber:#BA7517;--amber-bg:#FAEEDA;--amber-dk:#633806;
+  --red:#A32D2D;--red-bg:#FCEBEB;--red-dk:#791F1F;
+  --blue:#185FA5;--blue-bg:#E6F1FB;--blue-dk:#042C53;
+  --purple:#534AB7;--purple-bg:#EEEDFE;--purple-dk:#26215C;
+  --r:10px;--rsm:6px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6}
+#root{display:flex;width:100%;min-height:100vh}
+
+/* ── Sidebar ── */
+.sidebar{width:216px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;position:sticky;top:0;overflow-y:auto}
+.sidebar-top{padding:22px 16px 10px}
+.app-title{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.app-sub{font-size:19px;font-weight:300;color:var(--text);letter-spacing:-.025em}
+.sidebar-body{padding:6px 12px;flex:1;overflow-y:auto}
+.sec-label{font-size:10.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;padding:0 6px;margin:12px 0 3px}
+.nav-btn{display:flex;align-items:center;gap:8px;width:100%;padding:7px 8px;border-radius:var(--rsm);border:none;background:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text2);text-align:left;transition:background .12s,color .12s}
+.nav-btn:hover{background:var(--surface2);color:var(--text)}
+.nav-btn.active{background:var(--text);color:var(--bg)}
+.nav-btn svg{width:13px;height:13px;flex-shrink:0;opacity:.65}
+.nav-btn.active svg{opacity:1}
+.sdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;transition:background .25s}
+.sidebar-sep{height:1px;background:var(--border);margin:8px 4px}
+
+/* ── Main ── */
+.main{flex:1;padding:28px 34px;overflow-y:auto;min-height:100vh;max-width:1100px}
+/* remove the page toggle logic, as react router handles this now */
+/* .page{display:none}.page.active{display:block} */
+.page-header{margin-bottom:22px}
+.page-title{font-size:21px;font-weight:300;letter-spacing:-.025em;color:var(--text)}
+.page-sub{font-size:12.5px;color:var(--text2);margin-top:3px}
+
+/* ── Cards ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:12px}
+.card-title{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+
+/* ── Stat row ── */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:9px;margin-bottom:16px}
+.stat-box{background:var(--surface2);border-radius:var(--rsm);padding:11px 13px}
+.stat-box .lbl{font-size:10.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+.stat-box .val{font-size:21px;font-weight:300;letter-spacing:-.02em}
+.stat-box .sub{font-size:10.5px;color:var(--text3);margin-top:1px}
+
+/* ── Course overview grid ── */
+.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:11px;margin-bottom:18px}
+.ccard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:15px 17px}
+.ccard .ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.ccard .cn{font-size:13.5px;font-weight:500}
+.badge{display:inline-block;font-size:10.5px;font-weight:500;padding:2px 8px;border-radius:20px}
+.bg{background:var(--green-bg);color:var(--green-dk)}
+.ba{background:var(--amber-bg);color:var(--amber-dk)}
+.br{background:var(--red-bg);color:var(--red-dk)}
+.bb{background:var(--blue-bg);color:var(--blue-dk)}
+.bp{background:var(--purple-bg);color:var(--purple-dk)}
+.pbar-bg{background:var(--surface2);border-radius:3px;height:4px;margin-bottom:4px}
+.pbar{height:4px;border-radius:3px;transition:width .4s}
+.plbl{display:flex;justify-content:space-between;font-size:10.5px;color:var(--text3);margin-bottom:7px}
+.cnote{font-size:11.5px;color:var(--text2);line-height:1.45}
+
+/* ── DDL ── */
+.ddl-group{font-size:10.5px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.055em;margin:16px 0 5px;display:flex;align-items:center;gap:8px}
+.ddl-group::after{content:'';flex:1;height:1px;background:var(--border)}
+.ddl-item{display:flex;align-items:center;gap:9px;padding:8px 11px;border:1px solid var(--border);border-radius:var(--rsm);margin-bottom:4px;background:var(--surface)}
+.ddl-item.hl-a{background:var(--amber-bg);border-color:#FAC775}
+.ddl-item.hl-r{background:var(--red-bg);border-color:#F7C1C1}
+.ddl-item.hl-p{background:var(--purple-bg);border-color:#CECBF6}
+.ddl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.ddl-date{font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);min-width:74px}
+.ddl-days{font-family:'DM Mono',monospace;font-size:10.5px;min-width:44px;text-align:right;flex-shrink:0}
+.ddl-student{font-size:10.5px;color:var(--text3);min-width:40px}
+.ddl-course{font-size:10.5px;color:var(--text3);min-width:76px}
+.ddl-name{font-size:12.5px;flex:1}
+.tag{font-size:10.5px;padding:2px 7px;border-radius:20px;white-space:nowrap}
+.tag-u{background:var(--red-bg);color:var(--red-dk)}
+.tag-k{background:var(--amber-bg);color:var(--amber-dk)}
+.tag-n{background:var(--surface2);color:var(--text2)}
+.tag-f{background:var(--purple-bg);color:var(--purple-dk)}
+
+/* ── Score editor ── */
+.editor-section{margin-bottom:18px}
+.editor-head{font-size:12px;font-weight:500;padding:8px 0 7px;border-bottom:1px solid var(--border);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;color:var(--text)}
+.score-row{display:flex;align-items:center;gap:7px;padding:6px 9px;background:var(--surface2);border-radius:var(--rsm);margin-bottom:4px}
+.score-row label{font-size:12.5px;flex:1;color:var(--text)}
+.score-row .wt{font-size:10.5px;color:var(--text3);min-width:32px;text-align:right}
+.score-row input[type=number]{width:72px;padding:3px 7px;border:1px solid var(--border);border-radius:var(--rsm);font-family:'DM Mono',monospace;font-size:12.5px;background:var(--surface);color:var(--text)}
+.score-row input:focus{outline:none;border-color:var(--text2)}
+.score-row input:disabled{opacity:.38;cursor:not-allowed}
+.missing-lbl{font-size:10.5px;color:var(--red);font-style:italic}
+
+/* ── Course detail ── */
+.summary-bar{background:var(--surface2);border-radius:var(--r);padding:13px 17px;margin-bottom:16px;display:flex;gap:22px;flex-wrap:wrap}
+.s-item .s-lbl{font-size:10.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.s-item .s-val{font-size:19px;font-weight:300;letter-spacing:-.01em}
+.detail-item{display:flex;align-items:center;gap:9px;padding:7px 11px;border-radius:var(--rsm);margin-bottom:3px}
+.di-name{font-size:12.5px;flex:1}
+.di-note{font-size:10.5px;color:var(--amber);margin-left:4px}
+.di-ddl{font-size:10.5px;color:var(--text3);margin-left:4px}
+.di-score{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--text2);min-width:60px;text-align:right}
+.di-contrib{font-family:'DM Mono',monospace;font-size:11.5px;font-weight:500;min-width:50px;text-align:right}
+.di-status{font-size:10.5px;min-width:44px;text-align:right}
+
+/* ── Management ── */
+.mgmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mgmt-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px}
+.mgmt-card h3{font-size:13.5px;font-weight:500;margin-bottom:12px}
+.list-item{display:flex;align-items:center;gap:7px;padding:7px 9px;background:var(--surface2);border-radius:var(--rsm);margin-bottom:5px}
+.list-item .li-name{font-size:12.5px;flex:1}
+.list-item .li-sub{font-size:10.5px;color:var(--text3)}
+.icon-btn{padding:3px 8px;border:1px solid var(--border);border-radius:var(--rsm);background:none;cursor:pointer;font-size:11.5px;color:var(--text2);font-family:'DM Sans',sans-serif}
+.icon-btn:hover{background:var(--surface2)}
+.icon-btn.danger:hover{background:var(--red-bg);color:var(--red);border-color:#F7C1C1}
+.form-row{display:flex;gap:7px;margin-bottom:7px;align-items:center}
+.form-row label{font-size:11.5px;color:var(--text2);min-width:56px}
+.form-row input,.form-row select,.form-row textarea{flex:1;padding:5px 9px;border:1px solid var(--border);border-radius:var(--rsm);font-family:'DM Sans',sans-serif;font-size:12.5px;background:var(--surface);color:var(--text)}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:none;border-color:var(--text2)}
+.btn{padding:7px 14px;border-radius:var(--rsm);border:1px solid var(--border2);background:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--text);transition:background .12s}
+.btn:hover{background:var(--surface2)}
+.btn-primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn-primary:hover{opacity:.83;background:var(--text)}
+.btn-sm{padding:4px 11px;font-size:11.5px}
+.btn-danger{border-color:#F7C1C1;color:var(--red)}
+.btn-danger:hover{background:var(--red-bg)}
+
+/* ── Tabs ── */
+.tab-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.tab{padding:4px 13px;border-radius:20px;border:1px solid var(--border);background:none;cursor:pointer;font-size:11.5px;color:var(--text2);font-family:'DM Sans',sans-serif;transition:background .12s}
+.tab:hover{background:var(--surface2)}
+.tab.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+
+/* ── Checkbox ── */
+.check-row{display:flex;align-items:center;gap:7px;padding:5px 0}
+.check-row input[type=checkbox]{width:14px;height:14px;cursor:pointer;accent-color:var(--text)}
+.check-row label{font-size:12.5px;cursor:pointer}
+
+/* ── Modal ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:100;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border-radius:var(--r);padding:22px 24px;width:520px;max-width:93vw;max-height:86vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,.13)}
+.modal h2{font-size:16px;font-weight:500;margin-bottom:16px}
+.modal-footer{display:flex;justify-content:flex-end;gap:7px;margin-top:16px;padding-top:13px;border-top:1px solid var(--border)}
+.items-editor{margin-top:12px}
+.item-row-edit{display:flex;gap:5px;align-items:center;margin-bottom:5px;padding:7px;background:var(--surface2);border-radius:var(--rsm)}
+.item-row-edit input,.item-row-edit select{padding:3px 7px;border:1px solid var(--border);border-radius:var(--rsm);font-family:'DM Mono',monospace;font-size:11.5px;background:var(--surface);color:var(--text)}
+.item-row-edit input:focus,.item-row-edit select:focus{outline:none;border-color:var(--text2)}
+.inp-name{flex:2;font-family:'DM Sans',sans-serif!important}
+.inp-w{width:48px}
+.inp-max{width:48px}
+.inp-ddl{width:86px}
+.inp-note{flex:1.5;font-family:'DM Sans',sans-serif!important}
+.inp-status{width:78px}
+
+/* ── Save toast ── */
+.save-toast{display:inline-block;font-size:11.5px;color:var(--green);margin-left:10px;opacity:0;transition:opacity .3s}
+
+/* ── Empty state ── */
+.empty{font-size:12.5px;color:var(--text3);padding:12px 0;font-style:italic}
+
+/* ── Course target per-course editor ── */
+.target-inline{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--text2)}
+.target-inline input{width:48px;padding:2px 6px;border:1px solid var(--border);border-radius:var(--rsm);font-family:'DM Mono',monospace;font-size:12px;background:var(--surface);color:var(--text)}
+.target-inline input:focus{outline:none;border-color:var(--text2)}
